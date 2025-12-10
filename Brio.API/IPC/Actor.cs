@@ -4,7 +4,7 @@ using Brio.API.Interface;
 using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Plugin;
 
-namespace Brio.API.IPC;
+namespace Brio.API;
 
 public class SpawnActor(IDalamudPluginInterface pi) : FuncSubscriber<SpawnFlags, bool, bool, IGameObject>(pi, Label)
 {

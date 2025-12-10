@@ -52,7 +52,7 @@ public interface IPosing
     /// </summary>
     /// <param name="gameObject">The game object to get the pose from.</param>
     /// <returns>A JSON string representing the pose, or null if the pose could not be retrieved.</returns>
-    public string? GetPoseasJson(IGameObject gameObject);
+    public string? GetPoseAsJson(IGameObject gameObject);
 
     /// <summary>
     /// Resets the pose of a game object to its default state.

@@ -4,7 +4,7 @@ using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Plugin;
 using System.Numerics;
 
-namespace Brio.API.IPC;
+namespace Brio.API;
 
 public class SetModelTransform(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, Vector3?, Quaternion?, Vector3?, bool, bool>(pi, Label)
 {
@@ -71,17 +71,17 @@ public class LoadPoseFromJson(IDalamudPluginInterface pi) : FuncSubscriber<IGame
         => new(pi, Label, api.LoadPoseFromJson);
 }
 
-public class GetPoseasJson(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, string?>(pi, Label)
+public class GetPoseAsJson(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, string?>(pi, Label)
 {
     /// <summary> The label. </summary>
-    public const string Label = $"Brio.{nameof(GetPoseasJson)}.V3";
+    public const string Label = $"Brio.{nameof(GetPoseAsJson)}.V3";
 
-    /// <inheritdoc cref="IPosing.GetPoseasJson"/>
+    /// <inheritdoc cref="IPosing.GetPoseAsJson"/>
     public new string? Invoke(IGameObject gameObject)
         => base.Invoke(gameObject);
 
     public static FuncProvider<IGameObject, string?> Provider(IDalamudPluginInterface pi, IPosing api)
-        => new(pi, Label, api.GetPoseasJson);
+        => new(pi, Label, api.GetPoseAsJson);
 }
 
 public class ResetPose(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, bool, bool>(pi, Label)

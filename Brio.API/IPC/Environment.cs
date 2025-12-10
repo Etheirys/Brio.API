@@ -2,7 +2,7 @@
 using Brio.API.Interface;
 using Dalamud.Plugin;
 
-namespace Brio.API.IPC;
+namespace Brio.API;
 
 public class FreezePhysics(IDalamudPluginInterface pi) : FuncSubscriber<bool>(pi, Label)
 {

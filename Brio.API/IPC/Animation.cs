@@ -3,7 +3,7 @@ using Brio.API.Helpers;
 using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Plugin;
 
-namespace Brio.API.IPC;
+namespace Brio.API;
 
 public class SetActorSpeed(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, float, bool>(pi, Label)
 {

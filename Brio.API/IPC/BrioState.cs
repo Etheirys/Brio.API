@@ -2,7 +2,7 @@
 using Brio.API.Interface;
 using Dalamud.Plugin;
 
-namespace Brio.API.IPC;
+namespace Brio.API;
 
 /// <inheritdoc cref="IState.ApiVersion"/>
 public class ApiVersion(IDalamudPluginInterface pi) : FuncSubscriber<(int Breaking, int Feature)>(pi, Label)
@@ -33,3 +33,4 @@ public class IsAvailable(IDalamudPluginInterface pi) : FuncSubscriber<bool>(pi, 
     public static FuncProvider<bool> Provider(IDalamudPluginInterface pi, IState api)
         => new(pi, Label, () => api.IsAvailable);
 }
+
