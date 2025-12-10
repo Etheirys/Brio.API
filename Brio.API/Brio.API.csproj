@@ -27,6 +27,7 @@
 	
     <PropertyGroup>
 	    <Use_DalamudPackager>false</Use_DalamudPackager>
+	    <TargetFramework>net10.0-windows7.0</TargetFramework>
     </PropertyGroup>
 	
     <ItemGroup>
