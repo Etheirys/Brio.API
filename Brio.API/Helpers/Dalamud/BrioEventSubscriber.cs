@@ -9,7 +9,7 @@ namespace Brio.API.Helpers;
 /// Subscriptions are wrapped to be individually exception-safe.<para/>
 /// Can be enabled and disabled.<para/>
 /// </summary>
-public sealed class EventSubscriber : IDisposable
+public sealed class BrioEventSubscriber : IDisposable
 {
     private readonly string _label;
     private readonly IPluginLog _log;
@@ -17,7 +17,7 @@ public sealed class EventSubscriber : IDisposable
     private ICallGateSubscriber<object?>? _subscriber;
     private bool _disabled;
 
-    public EventSubscriber(IDalamudPluginInterface pi, string label, params Action[] actions)
+    public BrioEventSubscriber(IDalamudPluginInterface pi, string label, params Action[] actions)
     {
         _label = label;
         _log = PluginLogHelper.GetLog(pi);
@@ -107,11 +107,11 @@ public sealed class EventSubscriber : IDisposable
         _delegates.Clear();
     }
 
-    ~EventSubscriber()
+    ~BrioEventSubscriber()
         => Dispose();
 }
 
-/// <summary><inheritdoc cref="EventSubscriber"/> </summary>
+/// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
 public sealed class EventSubscriber<T1> : IDisposable
 {
     private readonly string _label;
@@ -139,7 +139,7 @@ public sealed class EventSubscriber<T1> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Enable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Enable"/> </summary>
     public void Enable()
     {
         if (_disabled && _subscriber != null)
@@ -151,7 +151,7 @@ public sealed class EventSubscriber<T1> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Disable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Disable"/> </summary>
     public void Disable()
     {
         if (!_disabled)
@@ -164,7 +164,7 @@ public sealed class EventSubscriber<T1> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Event"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Event"/> </summary>
     public event Action<T1> Event
     {
         add
@@ -205,7 +205,7 @@ public sealed class EventSubscriber<T1> : IDisposable
         => Dispose();
 }
 
-/// <summary><inheritdoc cref="EventSubscriber"/> </summary>
+/// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
 public sealed class EventSubscriber<T1, T2> : IDisposable
 {
     private readonly string _label;
@@ -233,7 +233,7 @@ public sealed class EventSubscriber<T1, T2> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Enable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Enable"/> </summary>
     public void Enable()
     {
         if (_disabled && _subscriber != null)
@@ -245,7 +245,7 @@ public sealed class EventSubscriber<T1, T2> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Disable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Disable"/> </summary>
     public void Disable()
     {
         if (!_disabled)
@@ -258,7 +258,7 @@ public sealed class EventSubscriber<T1, T2> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Event"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Event"/> </summary>
     public event Action<T1, T2> Event
     {
         add
@@ -299,7 +299,7 @@ public sealed class EventSubscriber<T1, T2> : IDisposable
         => Dispose();
 }
 
-/// <summary><inheritdoc cref="EventSubscriber"/> </summary>
+/// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
 public sealed class EventSubscriber<T1, T2, T3> : IDisposable
 {
     private readonly string _label;
@@ -327,7 +327,7 @@ public sealed class EventSubscriber<T1, T2, T3> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Enable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Enable"/> </summary>
     public void Enable()
     {
         if (_disabled && _subscriber != null)
@@ -339,7 +339,7 @@ public sealed class EventSubscriber<T1, T2, T3> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Disable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Disable"/> </summary>
     public void Disable()
     {
         if (!_disabled)
@@ -352,7 +352,7 @@ public sealed class EventSubscriber<T1, T2, T3> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Event"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Event"/> </summary>
     public event Action<T1, T2, T3> Event
     {
         add
@@ -393,7 +393,7 @@ public sealed class EventSubscriber<T1, T2, T3> : IDisposable
         => Dispose();
 }
 
-/// <summary><inheritdoc cref="EventSubscriber"/> </summary>
+/// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
 public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
 {
     private readonly string _label;
@@ -421,7 +421,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Enable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Enable"/> </summary>
     public void Enable()
     {
         if (_disabled && _subscriber != null)
@@ -433,7 +433,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Disable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Disable"/> </summary>
     public void Disable()
     {
         if (!_disabled)
@@ -446,7 +446,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Event"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Event"/> </summary>
     public event Action<T1, T2, T3, T4> Event
     {
         add
@@ -487,7 +487,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
         => Dispose();
 }
 
-/// <summary><inheritdoc cref="EventSubscriber"/> </summary>
+/// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
 public sealed class EventSubscriber<T1, T2, T3, T4, T5> : IDisposable
 {
     private readonly string _label;
@@ -515,7 +515,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4, T5> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Enable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Enable"/> </summary>
     public void Enable()
     {
         if (_disabled && _subscriber != null)
@@ -527,7 +527,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4, T5> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Disable"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Disable"/> </summary>
     public void Disable()
     {
         if (!_disabled)
@@ -540,7 +540,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4, T5> : IDisposable
         }
     }
 
-    /// <summary><inheritdoc cref="EventSubscriber.Event"/> </summary>
+    /// <summary><inheritdoc cref="BrioEventSubscriber.Event"/> </summary>
     public event Action<T1, T2, T3, T4, T5> Event
     {
         add
