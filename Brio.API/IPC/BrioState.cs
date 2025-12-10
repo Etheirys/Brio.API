@@ -34,3 +34,32 @@ public class IsAvailable(IDalamudPluginInterface pi) : FuncSubscriber<bool>(pi, 
         => new(pi, Label, () => api.IsAvailable);
 }
 
+/// <summary>Invoked when Brio is initialized and ready.</summary>
+public static class Initialized
+{
+    /// <summary> The label. </summary>
+    public const string Label = $"Brio.{nameof(Initialized)}";
+
+    /// <summary> Create a new event subscriber. </summary>
+    public static BrioEventSubscriber Subscriber(IDalamudPluginInterface pi, params Action[] actions)
+        => new(pi, Label, actions);
+
+    /// <summary> Create a provider. </summary>
+    public static EventProvider Provider(IDalamudPluginInterface pi)
+        => new(pi, Label);
+}
+
+/// <summary>Invoked when Brio is disposed and unavailable.</summary>
+public static class Deinitialized
+{
+    /// <summary> The label. </summary>
+    public const string Label = $"Brio.{nameof(Deinitialized)}";
+
+    /// <summary> Create a new event subscriber. </summary>
+    public static BrioEventSubscriber Subscriber(IDalamudPluginInterface pi, params Action[] actions)
+        => new(pi, Label, actions);
+
+    /// <summary> Create a provider. </summary>
+    public static EventProvider Provider(IDalamudPluginInterface pi)
+        => new(pi, Label);
+}
