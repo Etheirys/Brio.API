@@ -12,7 +12,7 @@ public interface IActor
     /// <param name="selectInHierarchy">If <see langword="true"/>, the spawned actor will be selected in the hierarchy; otherwise, <see langword="false"/>.</param>
     /// <param name="spawnFrozen">If <see langword="true"/>, the actor will spawn with frozen physics; otherwise, <see langword="false"/>.</param>
     /// <returns>The spawned <see cref="IGameObject"/> instance.</returns>
-    public IGameObject Spawn(SpawnFlags spawnFlags, bool selectInHierarchy, bool spawnFrozen);
+    public IGameObject? Spawn(SpawnFlags spawnFlags, bool selectInHierarchy, bool spawnFrozen);
 
     /// <summary>
     /// Despawns the specified game object, removing it from the game world.
@@ -39,4 +39,14 @@ public interface IActor
     /// An array of <see cref="IGameObject"/> instances representing all actors, or <see langword="null"/> if no actors are available.
     /// </returns>
     public IGameObject[]? GetAllActors();
+
+    /// <summary>
+    /// Loads an MCDF file into the actor.
+    /// </summary>
+    BrioApiResult LoadMCDF(IGameObject gameObject, string path);
+
+    /// <summary>
+    /// Saves the actor’s data to an MCDF file.
+    /// </summary>
+    BrioApiResult SaveMCDF(IGameObject gameObject, string path);
 }
