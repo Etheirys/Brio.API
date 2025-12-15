@@ -34,6 +34,21 @@ public class IsAvailable(IDalamudPluginInterface pi) : FuncSubscriber<bool>(pi, 
         => new(pi, Label, () => api.IsAvailable);
 }
 
+/// <inheritdoc cref="IState.IsValidGPoseSession"/>
+public class IsValidGPoseSession(IDalamudPluginInterface pi) : FuncSubscriber<bool>(pi, Label)
+{
+    /// <summary> The label. </summary>
+    public const string Label = $"Brio.{nameof(IsAvailable)}";
+
+    /// <inheritdoc cref="IState.IsValidGPoseSession"/>
+    public new bool Invoke()
+        => base.Invoke();
+
+    /// <summary> Create a provider. </summary>
+    public static FuncProvider<bool> Provider(IDalamudPluginInterface pi, IState api)
+        => new(pi, Label, () => api.IsValidGPoseSession);
+}
+
 /// <summary>Invoked when Brio is initialized and ready.</summary>
 public static class Initialized
 {

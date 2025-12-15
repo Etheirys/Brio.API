@@ -17,4 +17,9 @@ public interface IState
     /// <see langword="true"/> if the API is available; otherwise, <see langword="false"/>.
     /// </value>
     public bool IsAvailable { get; }
+
+    /// <summary>
+    /// Checks if a GPose session is valid.
+    /// </summary>
+    public bool IsValidGPoseSession { get; }
 }
