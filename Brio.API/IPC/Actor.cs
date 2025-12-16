@@ -79,16 +79,16 @@ public class LoadMCDF(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, 
         => new(pi, Label, api.LoadMCDF);
 }
 
-public class SaveMCDF(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, string, BrioApiResult>(pi, Label)
+public class SaveMCDF(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, string, string, BrioApiResult>(pi, Label)
 {
     /// <summary> The label. </summary>
     public const string Label = $"Brio.{nameof(SaveMCDF)}.V3";
 
     /// <inheritdoc cref="IActor.SaveMCDF"/>
-    public new BrioApiResult Invoke(IGameObject gameObject, string path)
-        => base.Invoke(gameObject, path);
+    public new BrioApiResult Invoke(IGameObject gameObject, string path, string description)
+        => base.Invoke(gameObject, path, description);
 
-    public static FuncProvider<IGameObject, string, BrioApiResult> Provider(IDalamudPluginInterface pi, IActor api)
+    public static FuncProvider<IGameObject, string, string, BrioApiResult> Provider(IDalamudPluginInterface pi, IActor api)
         => new(pi, Label, api.SaveMCDF);
 }
 

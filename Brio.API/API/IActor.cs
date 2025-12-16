@@ -48,5 +48,5 @@ public interface IActor
     /// <summary>
     /// Saves the actor’s data to an MCDF file.
     /// </summary>
-    BrioApiResult SaveMCDF(IGameObject gameObject, string path);
+    BrioApiResult SaveMCDF(IGameObject gameObject, string path, string description);
 }
