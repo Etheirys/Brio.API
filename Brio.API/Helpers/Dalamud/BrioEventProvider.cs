@@ -9,13 +9,13 @@ namespace Brio.API.Helpers;
 /// Will execute the unsubscriber action on dispose if any is provided.<para />
 /// Can only be invoked and disposed.
 /// </summary>
-public sealed class EventProvider : IDisposable
+public sealed class BrioEventProvider : IDisposable
 {
     private readonly IPluginLog _log;
     private ICallGateProvider<object?>? _provider;
     private Delegate? _unsubscriber;
 
-    public EventProvider(IDalamudPluginInterface pi, string label, (Action<Action> Add, Action<Action> Del)? subscribe = null)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, (Action<Action> Add, Action<Action> Del)? subscribe = null)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -32,7 +32,7 @@ public sealed class EventProvider : IDisposable
         }
     }
 
-    public EventProvider(IDalamudPluginInterface pi, string label, Action<EventProvider> add, Action<EventProvider> del)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, Action<BrioEventProvider> add, Action<BrioEventProvider> del)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -69,7 +69,7 @@ public sealed class EventProvider : IDisposable
             case Action<Action> a:
                 a(Invoke);
                 break;
-            case Action<EventProvider> b:
+            case Action<BrioEventProvider> b:
                 b(this);
                 break;
         }
@@ -79,18 +79,18 @@ public sealed class EventProvider : IDisposable
         GC.SuppressFinalize(this);
     }
 
-    ~EventProvider()
+    ~BrioEventProvider()
         => Dispose();
 }
 
-/// <inheritdoc cref="EventProvider"/>
-public sealed class EventProvider<T1> : IDisposable
+/// <inheritdoc cref="BrioEventProvider"/>
+public sealed class BrioEventProvider<T1> : IDisposable
 {
     private readonly IPluginLog _log;
     private ICallGateProvider<T1, object?>? _provider;
     private Delegate? _unsubscriber;
 
-    public EventProvider(IDalamudPluginInterface pi, string label, (Action<Action<T1>> Add, Action<Action<T1>> Del)? subscribe = null)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, (Action<Action<T1>> Add, Action<Action<T1>> Del)? subscribe = null)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -107,7 +107,7 @@ public sealed class EventProvider<T1> : IDisposable
         }
     }
 
-    public EventProvider(IDalamudPluginInterface pi, string label, Action<EventProvider<T1>> add, Action<EventProvider<T1>> del)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, Action<BrioEventProvider<T1>> add, Action<BrioEventProvider<T1>> del)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -124,7 +124,7 @@ public sealed class EventProvider<T1> : IDisposable
         }
     }
 
-    /// <inheritdoc cref="EventProvider.Invoke"/>
+    /// <inheritdoc cref="BrioEventProvider.Invoke"/>
     public void Invoke(T1 a)
     {
         try
@@ -144,7 +144,7 @@ public sealed class EventProvider<T1> : IDisposable
             case Action<Action<T1>> a:
                 a(Invoke);
                 break;
-            case Action<EventProvider<T1>> b:
+            case Action<BrioEventProvider<T1>> b:
                 b(this);
                 break;
         }
@@ -154,18 +154,18 @@ public sealed class EventProvider<T1> : IDisposable
         GC.SuppressFinalize(this);
     }
 
-    ~EventProvider()
+    ~BrioEventProvider()
         => Dispose();
 }
 
-/// <inheritdoc cref="EventProvider"/> 
-public sealed class EventProvider<T1, T2> : IDisposable
+/// <inheritdoc cref="BrioEventProvider"/> 
+public sealed class BrioEventProvider<T1, T2> : IDisposable
 {
     private readonly IPluginLog _log;
     private ICallGateProvider<T1, T2, object?>? _provider;
     private Delegate? _unsubscriber;
 
-    public EventProvider(IDalamudPluginInterface pi, string label,
+    public BrioEventProvider(IDalamudPluginInterface pi, string label,
         (Action<Action<T1, T2>> Add, Action<Action<T1, T2>> Del)? subscribe = null)
     {
         _unsubscriber = null;
@@ -183,7 +183,7 @@ public sealed class EventProvider<T1, T2> : IDisposable
         }
     }
 
-    public EventProvider(IDalamudPluginInterface pi, string label, Action<EventProvider<T1, T2>> add, Action<EventProvider<T1, T2>> del)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, Action<BrioEventProvider<T1, T2>> add, Action<BrioEventProvider<T1, T2>> del)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -200,7 +200,7 @@ public sealed class EventProvider<T1, T2> : IDisposable
         }
     }
 
-    /// <inheritdoc cref="EventProvider.Invoke"/>
+    /// <inheritdoc cref="BrioEventProvider.Invoke"/>
     public void Invoke(T1 a, T2 b)
     {
         try
@@ -220,7 +220,7 @@ public sealed class EventProvider<T1, T2> : IDisposable
             case Action<Action<T1, T2>> a:
                 a(Invoke);
                 break;
-            case Action<EventProvider<T1, T2>> b:
+            case Action<BrioEventProvider<T1, T2>> b:
                 b(this);
                 break;
         }
@@ -230,18 +230,18 @@ public sealed class EventProvider<T1, T2> : IDisposable
         GC.SuppressFinalize(this);
     }
 
-    ~EventProvider()
+    ~BrioEventProvider()
         => Dispose();
 }
 
-/// <inheritdoc cref="EventProvider"/> 
-public sealed class EventProvider<T1, T2, T3> : IDisposable
+/// <inheritdoc cref="BrioEventProvider"/> 
+public sealed class BrioEventProvider<T1, T2, T3> : IDisposable
 {
     private readonly IPluginLog _log;
     private ICallGateProvider<T1, T2, T3, object?>? _provider;
     private Delegate? _unsubscriber;
 
-    public EventProvider(IDalamudPluginInterface pi, string label,
+    public BrioEventProvider(IDalamudPluginInterface pi, string label,
         (Action<Action<T1, T2, T3>> Add, Action<Action<T1, T2, T3>> Del)? subscribe = null)
     {
         _unsubscriber = null;
@@ -259,7 +259,7 @@ public sealed class EventProvider<T1, T2, T3> : IDisposable
         }
     }
 
-    public EventProvider(IDalamudPluginInterface pi, string label, Action<EventProvider<T1, T2, T3>> add, Action<EventProvider<T1, T2, T3>> del)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, Action<BrioEventProvider<T1, T2, T3>> add, Action<BrioEventProvider<T1, T2, T3>> del)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -276,7 +276,7 @@ public sealed class EventProvider<T1, T2, T3> : IDisposable
         }
     }
 
-    /// <inheritdoc cref="EventProvider.Invoke"/>
+    /// <inheritdoc cref="BrioEventProvider.Invoke"/>
     public void Invoke(T1 a, T2 b, T3 c)
     {
         try
@@ -296,7 +296,7 @@ public sealed class EventProvider<T1, T2, T3> : IDisposable
             case Action<Action<T1, T2, T3>> a:
                 a(Invoke);
                 break;
-            case Action<EventProvider<T1, T2, T3>> b:
+            case Action<BrioEventProvider<T1, T2, T3>> b:
                 b(this);
                 break;
         }
@@ -306,18 +306,18 @@ public sealed class EventProvider<T1, T2, T3> : IDisposable
         GC.SuppressFinalize(this);
     }
 
-    ~EventProvider()
+    ~BrioEventProvider()
         => Dispose();
 }
 
-/// <inheritdoc cref="EventProvider"/> 
-public sealed class EventProvider<T1, T2, T3, T4> : IDisposable
+/// <inheritdoc cref="BrioEventProvider"/> 
+public sealed class BrioEventProvider<T1, T2, T3, T4> : IDisposable
 {
     private readonly IPluginLog _log;
     private ICallGateProvider<T1, T2, T3, T4, object?>? _provider;
     private Delegate? _unsubscriber;
 
-    public EventProvider(IDalamudPluginInterface pi, string label,
+    public BrioEventProvider(IDalamudPluginInterface pi, string label,
         (Action<Action<T1, T2, T3, T4>> Add, Action<Action<T1, T2, T3, T4>> Del)? subscribe = null)
     {
         _unsubscriber = null;
@@ -335,8 +335,8 @@ public sealed class EventProvider<T1, T2, T3, T4> : IDisposable
         }
     }
 
-    public EventProvider(IDalamudPluginInterface pi, string label, Action<EventProvider<T1, T2, T3, T4>> add,
-        Action<EventProvider<T1, T2, T3, T4>> del)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, Action<BrioEventProvider<T1, T2, T3, T4>> add,
+        Action<BrioEventProvider<T1, T2, T3, T4>> del)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -353,7 +353,7 @@ public sealed class EventProvider<T1, T2, T3, T4> : IDisposable
         }
     }
 
-    /// <inheritdoc cref="EventProvider.Invoke"/>
+    /// <inheritdoc cref="BrioEventProvider.Invoke"/>
     public void Invoke(T1 a, T2 b, T3 c, T4 d)
     {
         try
@@ -373,7 +373,7 @@ public sealed class EventProvider<T1, T2, T3, T4> : IDisposable
             case Action<Action<T1, T2, T3, T4>> a:
                 a(Invoke);
                 break;
-            case Action<EventProvider<T1, T2, T3, T4>> b:
+            case Action<BrioEventProvider<T1, T2, T3, T4>> b:
                 b(this);
                 break;
         }
@@ -383,18 +383,18 @@ public sealed class EventProvider<T1, T2, T3, T4> : IDisposable
         GC.SuppressFinalize(this);
     }
 
-    ~EventProvider()
+    ~BrioEventProvider()
         => Dispose();
 }
 
-/// <inheritdoc cref="EventProvider"/> 
-public sealed class EventProvider<T1, T2, T3, T4, T5> : IDisposable
+/// <inheritdoc cref="BrioEventProvider"/> 
+public sealed class BrioEventProvider<T1, T2, T3, T4, T5> : IDisposable
 {
     private readonly IPluginLog _log;
     private ICallGateProvider<T1, T2, T3, T4, T5, object?>? _provider;
     private Delegate? _unsubscriber;
 
-    public EventProvider(IDalamudPluginInterface pi, string label,
+    public BrioEventProvider(IDalamudPluginInterface pi, string label,
         (Action<Action<T1, T2, T3, T4, T5>> Add, Action<Action<T1, T2, T3, T4, T5>> Del)? subscribe = null)
     {
         _unsubscriber = null;
@@ -412,8 +412,8 @@ public sealed class EventProvider<T1, T2, T3, T4, T5> : IDisposable
         }
     }
 
-    public EventProvider(IDalamudPluginInterface pi, string label, Action<EventProvider<T1, T2, T3, T4, T5>> add,
-        Action<EventProvider<T1, T2, T3, T4, T5>> del)
+    public BrioEventProvider(IDalamudPluginInterface pi, string label, Action<BrioEventProvider<T1, T2, T3, T4, T5>> add,
+        Action<BrioEventProvider<T1, T2, T3, T4, T5>> del)
     {
         _unsubscriber = null;
         _log = PluginLogHelper.GetLog(pi);
@@ -430,7 +430,7 @@ public sealed class EventProvider<T1, T2, T3, T4, T5> : IDisposable
         }
     }
 
-    /// <inheritdoc cref="EventProvider.Invoke"/>
+    /// <inheritdoc cref="BrioEventProvider.Invoke"/>
     public void Invoke(T1 a, T2 b, T3 c, T4 d, T5 e)
     {
         try
@@ -450,7 +450,7 @@ public sealed class EventProvider<T1, T2, T3, T4, T5> : IDisposable
             case Action<Action<T1, T2, T3, T4, T5>> a:
                 a(Invoke);
                 break;
-            case Action<EventProvider<T1, T2, T3, T4, T5>> b:
+            case Action<BrioEventProvider<T1, T2, T3, T4, T5>> b:
                 b(this);
                 break;
         }
@@ -460,6 +460,6 @@ public sealed class EventProvider<T1, T2, T3, T4, T5> : IDisposable
         GC.SuppressFinalize(this);
     }
 
-    ~EventProvider()
+    ~BrioEventProvider()
         => Dispose();
 }

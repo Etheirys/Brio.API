@@ -60,7 +60,7 @@ public static class Initialized
         => new(pi, Label, actions);
 
     /// <summary> Create a provider. </summary>
-    public static EventProvider Provider(IDalamudPluginInterface pi)
+    public static BrioEventProvider Provider(IDalamudPluginInterface pi)
         => new(pi, Label);
 }
 
@@ -75,6 +75,6 @@ public static class Deinitialized
         => new(pi, Label, actions);
 
     /// <summary> Create a provider. </summary>
-    public static EventProvider Provider(IDalamudPluginInterface pi)
+    public static BrioEventProvider Provider(IDalamudPluginInterface pi)
         => new(pi, Label);
 }
