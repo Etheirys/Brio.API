@@ -92,3 +92,32 @@ public class SaveMCDF(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, 
         => new(pi, Label, api.SaveMCDF);
 }
 
+/// <summary>Invoked when a Brio Actor is initialized and ready.</summary>
+public static class ActorSpawned 
+{
+    /// <summary> The label. </summary>
+    public const string Label = $"Brio.{nameof(ActorSpawned)}";
+
+    /// <summary> Create a new event subscriber. </summary>
+    public static BrioEventSubscriber<IGameObject> Subscriber(IDalamudPluginInterface pi, params Action<IGameObject>[] actions)
+        => new(pi, Label, actions);
+
+    /// <summary> Create a provider. </summary>
+    public static BrioEventProvider<IGameObject> Provider(IDalamudPluginInterface pi)
+        => new(pi, Label);
+}
+
+/// <summary>Invoked when a Brio Actor is disposed and unavailable.</summary>
+public static class ActorDestroyed 
+{
+    /// <summary> The label. </summary>
+    public const string Label = $"Brio.{nameof(ActorDestroyed)}";
+
+    /// <summary> Create a new event subscriber. </summary>
+    public static BrioEventSubscriber<IGameObject> Subscriber(IDalamudPluginInterface pi, params Action<IGameObject>[] actions)
+        => new(pi, Label, actions);
+
+    /// <summary> Create a provider. </summary>
+    public static BrioEventProvider<IGameObject> Provider(IDalamudPluginInterface pi)
+        => new(pi, Label);
+}
