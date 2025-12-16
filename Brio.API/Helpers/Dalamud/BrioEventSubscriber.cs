@@ -112,7 +112,7 @@ public sealed class BrioEventSubscriber : IDisposable
 }
 
 /// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
-public sealed class EventSubscriber<T1> : IDisposable
+public sealed class BrioEventSubscriber<T1> : IDisposable
 {
     private readonly string _label;
     private readonly IPluginLog _log;
@@ -120,7 +120,7 @@ public sealed class EventSubscriber<T1> : IDisposable
     private ICallGateSubscriber<T1, object?>? _subscriber;
     private bool _disabled;
 
-    public EventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1>[] actions)
+    public BrioEventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1>[] actions)
     {
         _label = label;
         _log = PluginLogHelper.GetLog(pi);
@@ -201,12 +201,12 @@ public sealed class EventSubscriber<T1> : IDisposable
         _delegates.Clear();
     }
 
-    ~EventSubscriber()
+    ~BrioEventSubscriber()
         => Dispose();
 }
 
 /// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
-public sealed class EventSubscriber<T1, T2> : IDisposable
+public sealed class BrioEventSubscriber<T1, T2> : IDisposable
 {
     private readonly string _label;
     private readonly IPluginLog _log;
@@ -214,7 +214,7 @@ public sealed class EventSubscriber<T1, T2> : IDisposable
     private ICallGateSubscriber<T1, T2, object?>? _subscriber;
     private bool _disabled;
 
-    public EventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2>[] actions)
+    public BrioEventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2>[] actions)
     {
         _label = label;
         _log = PluginLogHelper.GetLog(pi);
@@ -295,12 +295,12 @@ public sealed class EventSubscriber<T1, T2> : IDisposable
         _delegates.Clear();
     }
 
-    ~EventSubscriber()
+    ~BrioEventSubscriber()
         => Dispose();
 }
 
 /// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
-public sealed class EventSubscriber<T1, T2, T3> : IDisposable
+public sealed class BrioEventSubscriber<T1, T2, T3> : IDisposable
 {
     private readonly string _label;
     private readonly IPluginLog _log;
@@ -308,7 +308,7 @@ public sealed class EventSubscriber<T1, T2, T3> : IDisposable
     private ICallGateSubscriber<T1, T2, T3, object?>? _subscriber;
     private bool _disabled;
 
-    public EventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2, T3>[] actions)
+    public BrioEventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2, T3>[] actions)
     {
         _label = label;
         _log = PluginLogHelper.GetLog(pi);
@@ -389,12 +389,12 @@ public sealed class EventSubscriber<T1, T2, T3> : IDisposable
         _delegates.Clear();
     }
 
-    ~EventSubscriber()
+    ~BrioEventSubscriber()
         => Dispose();
 }
 
 /// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
-public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
+public sealed class BrioEventSubscriber<T1, T2, T3, T4> : IDisposable
 {
     private readonly string _label;
     private readonly IPluginLog _log;
@@ -402,7 +402,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
     private ICallGateSubscriber<T1, T2, T3, T4, object?>? _subscriber;
     private bool _disabled;
 
-    public EventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2, T3, T4>[] actions)
+    public BrioEventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2, T3, T4>[] actions)
     {
         _label = label;
         _log = PluginLogHelper.GetLog(pi);
@@ -483,12 +483,12 @@ public sealed class EventSubscriber<T1, T2, T3, T4> : IDisposable
         _delegates.Clear();
     }
 
-    ~EventSubscriber()
+    ~BrioEventSubscriber()
         => Dispose();
 }
 
 /// <summary><inheritdoc cref="BrioEventSubscriber"/> </summary>
-public sealed class EventSubscriber<T1, T2, T3, T4, T5> : IDisposable
+public sealed class BrioEventSubscriber<T1, T2, T3, T4, T5> : IDisposable
 {
     private readonly string _label;
     private readonly IPluginLog _log;
@@ -496,7 +496,7 @@ public sealed class EventSubscriber<T1, T2, T3, T4, T5> : IDisposable
     private ICallGateSubscriber<T1, T2, T3, T4, T5, object?>? _subscriber;
     private bool _disabled;
 
-    public EventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2, T3, T4, T5>[] actions)
+    public BrioEventSubscriber(IDalamudPluginInterface pi, string label, params Action<T1, T2, T3, T4, T5>[] actions)
     {
         _label = label;
         _log = PluginLogHelper.GetLog(pi);
@@ -577,6 +577,6 @@ public sealed class EventSubscriber<T1, T2, T3, T4, T5> : IDisposable
         _delegates.Clear();
     }
 
-    ~EventSubscriber()
+    ~BrioEventSubscriber()
         => Dispose();
 }
