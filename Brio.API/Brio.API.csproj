@@ -1,4 +1,4 @@
-﻿<Project Sdk="Dalamud.NET.Sdk/13.1.0">
+﻿<Project Sdk="Dalamud.NET.SDK/14.0.0">
 	
 	<PropertyGroup>
 		<ImplicitUsings>enable</ImplicitUsings>
