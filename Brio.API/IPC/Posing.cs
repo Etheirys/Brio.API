@@ -22,7 +22,7 @@ public class SetModelTransform(IDalamudPluginInterface pi) : FuncSubscriber<IGam
 public class GetModelTransform(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, (Vector3?, Quaternion?, Vector3?)>(pi, Label)
 {
     /// <summary> The label. </summary>
-    public const string Label = $"Brio.{nameof(SetModelTransform)}.V3";
+    public const string Label = $"Brio.{nameof(GetModelTransform)}.V3";
 
     /// <inheritdoc cref="IPosing.GetModelTransform"/>
     public new (Vector3?, Quaternion?, Vector3?) Invoke(IGameObject gameObject)
