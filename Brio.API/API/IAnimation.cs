@@ -20,7 +20,7 @@ public interface IAnimation
     /// <param name="speed">The animation speed multiplier (e.g., 1.0 for normal speed, 0.5 for half speed, 2.0 for double speed).</param>
     /// <returns>true if the speed was successfully set; otherwise, false.</returns>
     public bool SetActorSpeed(IGameObject gameObject, float speed);
-    
+
     /// <summary>
     /// Gets the current animation playback speed for the specified actor.
     /// </summary>
@@ -34,7 +34,7 @@ public interface IAnimation
     /// <param name="gameObject">The game object to freeze.</param>
     /// <returns>true if the actor was successfully frozen; otherwise, false.</returns>
     public bool FreezeActor(IGameObject gameObject);
-    
+
     /// <summary>
     /// Unfreezes the animation of the specified actor, resuming playback.
     /// </summary>

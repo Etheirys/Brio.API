@@ -93,7 +93,7 @@ public class SaveMCDF(IDalamudPluginInterface pi) : FuncSubscriber<IGameObject, 
 }
 
 /// <summary>Invoked when a Brio Actor is initialized and ready.</summary>
-public static class ActorSpawned 
+public static class ActorSpawned
 {
     /// <summary> The label. </summary>
     public const string Label = $"Brio.{nameof(ActorSpawned)}";
@@ -108,7 +108,7 @@ public static class ActorSpawned
 }
 
 /// <summary>Invoked when a Brio Actor is disposed and unavailable.</summary>
-public static class ActorDestroyed 
+public static class ActorDestroyed
 {
     /// <summary> The label. </summary>
     public const string Label = $"Brio.{nameof(ActorDestroyed)}";

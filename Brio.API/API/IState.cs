@@ -9,7 +9,7 @@ public interface IState
     /// The minor/Feature version increments any time there is something added and resets when Breaking is incremented.
     /// </summary>
     public (int Breaking, int Feature) ApiVersion { get; }
-   
+
     /// <summary>
     /// Gets a value indicating whether the API is currently available and ready for use.
     /// </summary>
