@@ -9,9 +9,9 @@
 		<AssemblyTitle>Brio.API</AssemblyTitle>
 		<Product>Brio</Product>
 		<Copyright>Copyright Minmoose © 2025</Copyright>
-		<FileVersion>3.0.0.0</FileVersion>
-		<AssemblyVersion>3.0.0.0</AssemblyVersion>
-		<PackageVersion>3.0.0</PackageVersion>
+		<FileVersion>3.0.0.1</FileVersion>
+		<AssemblyVersion>3.0.0.1</AssemblyVersion>
+		<PackageVersion>3.0.1</PackageVersion>
 		<OutputPath>bin\$(Configuration)\</OutputPath>
 	</PropertyGroup>
 
